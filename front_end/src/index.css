@@ -1,0 +1,15 @@
+
+* {
+    padding: 0;
+    margin: 0; 
+    box-sizing: border-box; 
+  }
+  
+body { 
+    font-family:  'Roboto', sans-serif;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 100vh;
+}

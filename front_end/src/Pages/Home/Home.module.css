@@ -1,0 +1,25 @@
+.sectionContainer {
+    width: 100%;
+    padding-top: 50px;
+    padding-left: 150px;
+    padding-right: 70px;
+}
+
+.title {
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 25px;
+    margin-bottom: 40px;
+}
+
+.name {
+    color: red;
+}
+
+.tag {
+    font-size: 15px;
+    font-weight: 400;
+    line-height: 25px;
+    color: black;
+    margin-bottom: 45px;
+}  

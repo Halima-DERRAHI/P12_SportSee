@@ -1,0 +1,35 @@
+.header {
+    background-color: #020203;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 91px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.navigation {
+    font-weight: 500;
+    font-size: 24px;
+    width: 80%;
+}
+
+.navigation ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.navLink {
+    text-decoration: none;
+    color: white;
+}
+
+.navLink li {
+    font-size: 24px;
+    list-style-type: none;
+}
+
+.logoContainer a img {
+    width: 200px;
+}
