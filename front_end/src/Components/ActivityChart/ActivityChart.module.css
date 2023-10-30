@@ -1,0 +1,39 @@
+.ActivityChart {
+    height: 320px;
+    background-color: #FBFBFB;
+    border-radius: 5px;
+    padding-bottom: 80px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    margin: 25px 25px 0 25px;
+}
+
+.title {
+    color: #20253A;
+    font-size: 15px; 
+    line-height: 1.5rem;
+}
+
+.legend {
+    display: flex;
+}
+.legendItem {
+    align-items: center;
+    color: #74798c;
+    display: flex;
+    margin-left: 30px; 
+}
+
+.circle {
+    font-size: 10px; 
+    margin-right: 8px; 
+}
+.circle.black {
+    color: #000;
+}
+.circle.red {
+    color: #e60000;
+}

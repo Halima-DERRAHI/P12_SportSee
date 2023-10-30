@@ -1,0 +1,33 @@
+.container {
+    background-color: rgb(251, 251, 251);
+    width: 258px;
+    height: 263px;
+    position: relative;
+    padding-top: 15px;
+    border-radius: 5px;
+}
+
+.title {
+    font-size: 15px;
+    font-weight: 500;
+    margin-left: 30px;
+}
+.score {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 26px;
+}
+.label {
+    font-size: 15px;
+    font-weight: 400;
+    color: rgba(116, 121, 140, 1);
+}
+.infos {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 10;
+    width: 96px;
+}

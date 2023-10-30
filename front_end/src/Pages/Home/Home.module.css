@@ -1,21 +1,22 @@
-.sectionContainer {
-    width: 100%;
+.home {
     padding-top: 50px;
-    padding-left: 150px;
-    padding-right: 70px;
+    padding-left: 200px;
+    padding-right: 60px;
 }
 
+.header {
+    width: 100%;
+    padding-right: 70px;
+}
 .title {
     font-size: 40px;
     font-weight: 500;
     line-height: 25px;
     margin-bottom: 40px;
 }
-
 .name {
     color: red;
 }
-
 .tag {
     font-size: 15px;
     font-weight: 400;
@@ -23,3 +24,26 @@
     color: black;
     margin-bottom: 45px;
 }  
+
+.results {
+    display: flex;
+}
+.charts {
+    width: 75%;
+    margin-right: 30px;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.bottomContainer {
+    display: flex ;
+    justify-content: space-between;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 40px;
+    width: 25%;
+}

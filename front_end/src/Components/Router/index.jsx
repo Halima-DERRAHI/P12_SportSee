@@ -10,7 +10,7 @@ function RouterIndex () {
             <NavBar />
             <VerticalNav />
             <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/user/:userId" element={<Home />} />
             <Route path="*" element={<ErrorPage />} />
             </Routes>
         </Router>
