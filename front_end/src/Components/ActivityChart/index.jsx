@@ -1,10 +1,25 @@
-import {BarChart, Bar, CartesianGrid, ResponsiveContainer, XAxis, YAxis} from 'recharts';
+import {BarChart, Bar, CartesianGrid, ResponsiveContainer, XAxis, YAxis, Tooltip} from 'recharts';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircle } from '@fortawesome/free-solid-svg-icons';
 import styles from './ActivityChart.module.css'
 
 function ActivityChart ({ data }) {
-    const sessions = data.sessions;
+
+    const CustomTooltip = ({ active, payload }) => {
+        if (active && payload && payload.length) {
+      
+          return (
+            <div className={styles.toolTipContainer}>
+              <div className={styles.toolTipText}>
+                <p>{payload[0].value}kg</p>
+                <p>{payload[1].value}Kcal</p>
+              </div>
+            </div>
+          );
+        }
+      
+        return null;
+    };
 
     return (
         <div className={styles.ActivityChart}>
@@ -23,7 +38,7 @@ function ActivityChart ({ data }) {
             </header>
             <ResponsiveContainer width="100%" height="90%">
                 <BarChart
-                    data={sessions}
+                    data={data.sessions}
                     margin={{
                     top: 50,
                     right: 10,
@@ -34,16 +49,18 @@ function ActivityChart ({ data }) {
                     barGap={10}
                 >
                     <CartesianGrid 
-                        strokeDasharray="3 3" 
+                        strokeDasharray="1 1" 
                         vertical={false} 
                     />
                     <XAxis 
                         dataKey="day"
                         tickLine={false}
                         tick={{ fontSize: 14 }}
-                        padding={{ left: -50, right: -50 }}
+                        // padding={{ left: -50, right: -50 }}
                         dy={15} 
+                        stroke="1 1"
                     />
+                    <Tooltip content={<CustomTooltip />} />
                     <YAxis 
                         dataKey="kilogram" 
                         yAxisId="left" 
@@ -56,6 +73,7 @@ function ActivityChart ({ data }) {
                         tick={{ fontSize: 14, fill: '#74798c'}}
                         tickCount={3}
                         dx={20}
+                        domain={['dataMin-2', 'dataMax+1']}
                     />
                     <YAxis 
                         dataKey="calories" 
@@ -78,6 +96,7 @@ function ActivityChart ({ data }) {
                         radius={[30, 30, 0, 0]}
                         barSize={7}
                     />
+                    
                 </BarChart>
             </ResponsiveContainer>
         </div>

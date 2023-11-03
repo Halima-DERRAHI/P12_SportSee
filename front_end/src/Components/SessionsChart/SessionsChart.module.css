@@ -10,7 +10,23 @@
     font-size: 15px;
     font-weight: 500;
     line-height: 24px; 
-    margin-top: 30px;
+    margin-top: 25px;
     margin-left: 30px;
     color: rgba(255, 255, 255, 0.5);
+}
+
+.toolTipContainer {
+    background-color: white;
+    width: 40px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.toolTipText {
+    color: black;
+    font-weight: 500;
+    font-size: 10px;
+    line-height: 24px;
 }

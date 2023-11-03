@@ -2,7 +2,7 @@ import {Radar, RadarChart, PolarGrid, PolarAngleAxis, ResponsiveContainer} from 
 import styles from './PerformanceChart.module.css'
 
 function PerformanceChart({data}) {
-    console.log(data.kind);
+    //console.log(data.kind);
 
     return (
         <div className={styles.container}>
@@ -23,9 +23,8 @@ function PerformanceChart({data}) {
                     />
                      <Radar 
                         dataKey="value"
-						stroke="#FF0101"
 						fill="#FF0101"
-						fillOpacity={0.6}
+						fillOpacity={0.7}
                         />
                 </RadarChart>
             </ResponsiveContainer>
