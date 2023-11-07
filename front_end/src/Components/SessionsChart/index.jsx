@@ -1,17 +1,17 @@
 import { ResponsiveContainer, LineChart, XAxis, YAxis, Line, Tooltip } from 'recharts';
-import styles from './SessionsChart.module.css'
+import styles from './SessionsChart.module.css';
 
 function AverageSessionsChart({ data }) {
 
-    const CustomTooltip = ({ active, payload, label }) => {
+    const CustomTooltip = ({ active, payload }) => {
         if (active && payload && payload.length) {
-          return (
-            <div className={styles.toolTipContainer}>
-              <p className={styles.toolTipText}>{payload[0].value}min</p>
-            </div>
-          );
+            return (
+                <div className={styles.toolTipContainer}>
+                    <p className={styles.toolTipText}>{payload[0].value}min</p>
+                </div>
+            );
         }
-      
+
         return null;
     };
 
@@ -21,22 +21,20 @@ function AverageSessionsChart({ data }) {
             <ResponsiveContainer width="100%" height="100%" className="responsiveChart">
                 <LineChart
                     data={data.sessions}
-                    margin={{
-                        top: 0,
-                        right: 0,
-                        left: 0,
-                        bottom: 15,
-                    }}
-
+                    margin={{ top: 0, right: 0, left: 0, bottom: 15 }}
                     onMouseMove={(e) => {
-                        if (e.isTooltipActive === true) {
+                        if ( e.isTooltipActive === true ) {
                             const chartContainer = document.querySelector('.responsiveChart');
                             let div = chartContainer.querySelector('.recharts-wrapper');
-                            let windowWidth = div.clientWidth
-                            let mouseXpercentage = Math.round(
-                            (e.activeCoordinate.x / windowWidth) * 100)
+                            let windowWidth = div.clientWidth;
+                            let mouseXpercentage = Math.round((e.activeCoordinate.x / windowWidth) * 100);
                             div.style.background = `linear-gradient(90deg, transparent ${mouseXpercentage}%, rgba(0,0,0,0.2) ${mouseXpercentage}%, rgba(0,0,0,0.2) 100%)`;
                         }
+                    }}   
+                    onMouseLeave={() => {
+                        const chartContainer = document.querySelector('.responsiveChart');
+                        let div = chartContainer.querySelector('.recharts-wrapper');
+                        div.style.background = 'none';
                     }}
                 >
                     <defs>
@@ -45,7 +43,6 @@ function AverageSessionsChart({ data }) {
                             <stop offset="100%" stopColor="rgba(255, 255, 255)" />
                         </linearGradient>
                     </defs>
-
                     <XAxis 
                         dataKey="day" 
                         tickLine={false} 
@@ -53,15 +50,11 @@ function AverageSessionsChart({ data }) {
                         stroke="white" 
                         style={{ opacity: "0.6" }} 
                         tick={{ fontSize: 12}}
-                        />
-                    <YAxis 
-                        hide={true} 
-                        domain={[0, 'dataMax + 40']} 
                     />
+                    <YAxis hide domain={[0, 'dataMax + 40']} />
                     <Line 
                         type="monotone" 
                         dataKey="sessionLength" 
-                        //style={{ opacity: "0.5" }} 
                         strokeWidth={2} 
                         dot={false} 
                         activeDot={{
