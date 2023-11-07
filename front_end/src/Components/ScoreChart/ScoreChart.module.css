@@ -1,11 +1,17 @@
 .container {
     background-color: rgb(251, 251, 251);
-    width: 258px;
+    width: 30%;
     height: 263px;
     position: relative;
     padding-top: 15px;
     border-radius: 5px;
 }
+.chartContainer {
+    width: 70%;
+    min-width: 168px;
+    height: 100%;
+    margin: auto;
+} 
 
 .title {
     font-size: 15px;
@@ -24,7 +30,7 @@
 }
 .infos {
     position: absolute;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;

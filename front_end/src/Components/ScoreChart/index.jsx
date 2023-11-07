@@ -7,23 +7,23 @@ function ScoreChart({ data }) {
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>Score</h1>
-    
-            <ResponsiveContainer width={"100%"} height={"100%"}>
-                <RadialBarChart
-                    cx="50%"
-                    cy="35%"
-                    innerRadius="70%"
-                    outerRadius="100%"
-                    barSize={10}
-                    data={[{ value: score }]} 
-                    startAngle={90}
-                    endAngle={90 + (score / 100) * 360}
-                >
-                <circle cx="50%" cy="35%" fill="white" r="75"></circle>
-                <RadialBar dataKey="value" cornerRadius={10} fill="#FF0000" />
-                </RadialBarChart>
-            </ResponsiveContainer>
-
+            <div className={styles.chartContainer}>
+                <ResponsiveContainer width={"100%"} height={"100%"}>
+                    <RadialBarChart
+                        cx="50%"
+                        cy="45%"
+                        innerRadius="90%"
+                        outerRadius="100%"
+                        barSize={10}
+                        data={[{ value: score }]} 
+                        startAngle={90}
+                        endAngle={90 + (score / 100) * 360}
+                    >
+                    <circle cx="50%" cy="45%" fill="white" r="32%"></circle>
+                    <RadialBar dataKey="value" cornerRadius={10} fill="#FF0000" />
+                    </RadialBarChart>
+                </ResponsiveContainer>
+            </div>
             <div className={styles.infos}>
                 <span className={styles.score}>{score}%</span>
                 <br />

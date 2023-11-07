@@ -18,7 +18,7 @@
 .titleContainer {
     display: flex;
     flex-direction: column;
-    margin-left: 2rem;
+    margin-left: 16px;
 }
 
 .value {

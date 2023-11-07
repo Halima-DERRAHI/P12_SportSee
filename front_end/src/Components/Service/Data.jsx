@@ -72,6 +72,15 @@ const formatAverageSessionsData = (data) => {
     sessionLength: session.sessionLength
   }));
 
+  formattedSessions.unshift({day: '',
+    sessionLength: formattedSessions[0].sessionLength
+  })
+
+  const lastSessions = formattedSessions[formattedSessions.length -1];
+  formattedSessions.push({day: '',
+    sessionLength: lastSessions.sessionLength
+  })
+
   return {
     userId,
     sessions: formattedSessions,
