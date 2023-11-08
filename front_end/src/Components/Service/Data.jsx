@@ -97,10 +97,14 @@ const getUserAverageSessions = async (userId) => {
 const formatPerformanceData = (data) => {
   const { userId, kind, data: performanceData } = data.data;
 
-  const formattedPerformance = Object.keys(kind).map((kindKey) => ({
-    value: performanceData[kindKey -1].value,
+  const kindKeys = Object.keys(kind);
+  kindKeys.reverse();
+
+  const formattedPerformance = kindKeys.map((kindKey) => ({
+    value: performanceData[kindKey - 1].value,
     kind: kind[kindKey].charAt(0).toUpperCase() + kind[kindKey].slice(1),
   }));
+
 
   return {
     userId,
