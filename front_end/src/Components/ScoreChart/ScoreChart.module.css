@@ -1,6 +1,7 @@
 .container {
     background-color: rgb(251, 251, 251);
     width: 30%;
+    max-width: 253px;
     height: 263px;
     position: relative;
     padding-top: 15px;
