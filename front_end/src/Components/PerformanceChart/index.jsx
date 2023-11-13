@@ -6,28 +6,30 @@ function PerformanceChart({data}) {
 
     return (
         <div className={styles.container}>
-            <ResponsiveContainer width="100%" height="100%">
-                <RadarChart 
-                    cx='50%' 
-                    cy='50%' 
-                    outerRadius='68%' 
-                    data={data.kind}
-                >
-                    <PolarGrid radialLines={false} />
-                    <PolarAngleAxis	
-                        dataKey="kind" 
-                        stroke='white' 
-                        tickLine={false} 
-                        axisLine={false}  
-                        tick={{ fontSize: 12 }}
-                    />
-                     <Radar 
-                        dataKey="value"
-						fill="#FF0101"
-						fillOpacity={0.7}
+            <div className={styles.chart}>
+                <ResponsiveContainer width="100%" height="100%">
+                    <RadarChart 
+                        cx='50%' 
+                        cy='50%' 
+                        outerRadius='68%' 
+                        data={data.kind}
+                    >
+                        <PolarGrid radialLines={false} />
+                        <PolarAngleAxis	
+                            dataKey="kind" 
+                            stroke='white' 
+                            tickLine={false} 
+                            axisLine={false}  
+                            tick={{ fontSize: 12 }}
                         />
-                </RadarChart>
-            </ResponsiveContainer>
+                        <Radar 
+                            dataKey="value"
+                            fill="#FF0101"
+                            fillOpacity={0.7}
+                            />
+                    </RadarChart>
+                </ResponsiveContainer>
+            </div>
         </div>
     )
 }

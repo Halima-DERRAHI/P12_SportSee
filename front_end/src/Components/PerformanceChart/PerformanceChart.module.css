@@ -5,3 +5,13 @@
     position: relative;
     border-radius: 5px;
 }
+.chart {
+    height: 230px;
+    margin-top: 22px;
+}
+
+@media (max-width: 1200px) {
+    tspan {
+        font-size: 9px;
+    }
+}

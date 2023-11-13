@@ -50,3 +50,9 @@
 .Lipides {
     background-color: rgba(253, 81, 129, 0.1);
 }
+
+@media (max-width: 1200px) {
+    .value {
+        font-size: 16px;
+    }
+}
