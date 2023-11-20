@@ -123,7 +123,6 @@ const formatPerformanceData = (data) => {
     kind: kind[kindKey].charAt(0).toUpperCase() + kind[kindKey].slice(1),
   }));
 
-
   return {
     userId,
     kind: formattedPerformance,
