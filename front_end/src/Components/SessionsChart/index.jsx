@@ -22,6 +22,7 @@ function AverageSessionsChart({ data }) {
                 <LineChart
                     data={data.sessions}
                     margin={{ top: 0, right: 0, left: 0, bottom: 15 }}
+                    
                     onMouseMove={(e) => {
                         if ( e.isTooltipActive === true ) {
                             const chartContainer = document.querySelector('.responsiveChart');
@@ -31,6 +32,7 @@ function AverageSessionsChart({ data }) {
                             div.style.background = `linear-gradient(90deg, transparent ${mouseXpercentage}%, rgba(0,0,0,0.2) ${mouseXpercentage}%, rgba(0,0,0,0.2) 100%)`;
                         }
                     }}   
+                    
                     onMouseLeave={() => {
                         const chartContainer = document.querySelector('.responsiveChart');
                         let div = chartContainer.querySelector('.recharts-wrapper');

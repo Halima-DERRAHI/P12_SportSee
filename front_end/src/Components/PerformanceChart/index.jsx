@@ -11,7 +11,7 @@ function PerformanceChart({data}) {
                     <RadarChart 
                         cx='50%' 
                         cy='50%' 
-                        outerRadius='68%' 
+                        outerRadius='65%' 
                         data={data.kind}
                     >
                         <PolarGrid radialLines={false} />
