@@ -1,10 +1,11 @@
 import { USER_MAIN_DATA, USER_ACTIVITY, USER_PERFORMANCE, USER_AVERAGE_SESSIONS } from '../../Data/mockedData.js';
 
 const API_URL = 'http://localhost:3000/user';
-const dataMocked = true;
+const dataMocked = false;
 
 const fetchData = async (URL, userId) => {
   if (dataMocked) {
+
     const dataMap = {
       [`${API_URL}/${userId}`]: USER_MAIN_DATA.find((item) => item.id === parseInt(userId)),
       [`${API_URL}/${userId}/activity`]: USER_ACTIVITY.find((item) => item.userId === parseInt(userId)),
@@ -15,7 +16,7 @@ const fetchData = async (URL, userId) => {
     const result = dataMap[URL] || null;
 
     return { data: result };
-    
+
   } else {
     const response = await fetch(URL);
     return response.ok ? await response.json() : null;
