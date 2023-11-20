@@ -1,8 +1,25 @@
-const API_URL = 'http://localhost:3000/user';
+import { USER_MAIN_DATA, USER_ACTIVITY, USER_PERFORMANCE, USER_AVERAGE_SESSIONS } from '../../Data/mockedData.js';
 
-const fetchData = async (URL) => {
-  const response = await fetch(URL);
-  return response.ok ? await response.json() : null;
+const API_URL = 'http://localhost:3000/user';
+const dataMocked = true;
+
+const fetchData = async (URL, userId) => {
+  if (dataMocked) {
+    const dataMap = {
+      [`${API_URL}/${userId}`]: USER_MAIN_DATA.find((item) => item.id === parseInt(userId)),
+      [`${API_URL}/${userId}/activity`]: USER_ACTIVITY.find((item) => item.userId === parseInt(userId)),
+      [`${API_URL}/${userId}/average-sessions`]: USER_AVERAGE_SESSIONS.find((item) => item.userId === parseInt(userId)),
+      [`${API_URL}/${userId}/performance`]: USER_PERFORMANCE.find((item) => item.userId === parseInt(userId)),
+    };
+
+    const result = dataMap[URL] || null;
+
+    return { data: result };
+    
+  } else {
+    const response = await fetch(URL);
+    return response.ok ? await response.json() : null;
+  }
 };
 
 /* Main User Data */
@@ -30,7 +47,7 @@ const formatUserData = (data) => {
 
 const getUserMainData = async (userId) => {
   const URL = `${API_URL}/${userId}`;
-  return formatUserData(await fetchData(URL));
+  return formatUserData(await fetchData(URL, userId));
 };
 
 /* Activity User Data */
@@ -57,7 +74,7 @@ const formatActivityData = (data) => {
 
 const getUserActivity = async (userId) => {
   const URL = `${API_URL}/${userId}/activity`;
-  return formatActivityData(await fetchData(URL));
+  return formatActivityData(await fetchData(URL, userId));
 };
 
 /* Average Sessions User Data */
@@ -89,7 +106,7 @@ const formatAverageSessionsData = (data) => {
 
 const getUserAverageSessions = async (userId) => {
   const URL = `${API_URL}/${userId}/average-sessions`;
-  return formatAverageSessionsData(await fetchData(URL));
+  return formatAverageSessionsData(await fetchData(URL, userId));
 };
 
 /* Performance User Data */
@@ -114,7 +131,7 @@ const formatPerformanceData = (data) => {
 
 const getUserPerformance = async (userId) => {
   const URL = `${API_URL}/${userId}/performance`;
-  return formatPerformanceData(await fetchData(URL));
+  return formatPerformanceData(await fetchData(URL, userId));
 };
 
 /* All User's Data */
